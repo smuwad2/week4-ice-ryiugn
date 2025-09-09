@@ -11,9 +11,9 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
-
+   <button id="btnAdd" onclick="addItem()">Enter</button>
    <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
+      <li>Notebook</li>
       <li>Jello</li>
       <li>Spinach</li>
       <li>Rice</li>
@@ -24,7 +24,19 @@
    <script>
 
       // add code here
-
+      function addItem() {
+         const ulElem = document.getElementsByTagName("ul")[0];
+         const itemVal = document.getElementById("inputText").value;
+         const liElem = document.createElement("li");
+         liElem.innerText = itemVal;
+         const btnDelete = document.createElement("button");
+         btnDelete.innerText = "Delete";
+         btnDelete.addEventListener("click", function() {
+            liElem.remove();
+         })
+         liElem.appendChild(btnDelete);
+         ulElem.appendChild(liElem);
+      }
    </script>
 
 </body>
